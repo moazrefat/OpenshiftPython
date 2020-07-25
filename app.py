@@ -1,6 +1,7 @@
 import os
 import sys
 from flask import Flask, jsonify, json, request, Response
+from flask_restful import Resource, Api
 from prometheus_flask_exporter import PrometheusMetrics
 
 
@@ -60,6 +61,10 @@ nutrition = [
     }
   },
 ]
+
+@app.route('/welcome')
+def welcome():
+    return 'Hello World!'
 
 @app.route('/configs', methods=['GET', 'POST'])
 def configs():
